@@ -1,8 +1,11 @@
-const authService = require("../services/authService");
+import {
+  register as _register,
+  login as _login,
+} from "../services/authService";
 
 const register = async (req, res, next) => {
   try {
-    const result = await authService.register(req.body);
+    const result = await _register(req.body);
     res.status(201).json({
       success: true,
       message: "User registered successfully",
@@ -15,7 +18,7 @@ const register = async (req, res, next) => {
 
 const login = async (req, res, next) => {
   try {
-    const result = await authService.login(req.body);
+    const result = await _login(req.body);
     res.json({
       success: true,
       message: "Login successful",
@@ -38,4 +41,4 @@ const logout = async (req, res, next) => {
   }
 };
 
-module.exports = { register, login, logout };
+export default { register, login, logout };
