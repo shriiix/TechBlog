@@ -1,10 +1,10 @@
-const User = require("../models/User");
-const { hashPassword, comparePassword } = require("../utils/password");
-const { signToken } = require("../utils/jwt");
+import { findOne, create } from "../models/User";
+import { hashPassword, comparePassword } from "../utils/password";
+import { signToken } from "../utils/jwt";
 
 const register = async ({ username, email, password }) => {
   // Check if user already exists
-  const existing = await User.findOne({ $or: [{ email }, { username }] });
+  const existing = await findOne({ $or: [{ email }, { username }] });
   if (existing) {
     throw new Error("User with this email or username already exists");
   }
@@ -13,7 +13,7 @@ const register = async ({ username, email, password }) => {
   const hashedPassword = await hashPassword(password);
 
   // Create user
-  const user = await User.create({
+  const user = await create({
     username,
     email,
     password: hashedPassword,
@@ -31,7 +31,7 @@ const register = async ({ username, email, password }) => {
 
 const login = async ({ email, password }) => {
   // Find user by email
-  const user = await User.findOne({ email });
+  const user = await findOne({ email });
   if (!user) {
     throw new Error("Invalid email or password");
   }
@@ -52,4 +52,4 @@ const login = async ({ email, password }) => {
   return { user: userObj, token };
 };
 
-module.exports = { register, login };
+export default { register, login };
