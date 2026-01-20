@@ -1,6 +1,6 @@
-import { findOne, create } from "../models/User";
-import { hashPassword, comparePassword } from "../utils/password";
-import { signToken } from "../utils/jwt";
+import { findOne, create } from "../models/User.js";
+import { hashPassword, comparePassword } from "../utils/password.js";
+import { signToken } from "../utils/jwt.js";
 
 const register = async ({ username, email, password }) => {
   // Check if user already exists
@@ -52,4 +52,4 @@ const login = async ({ email, password }) => {
   return { user: userObj, token };
 };
 
-export default { register, login };
+export { register, login };

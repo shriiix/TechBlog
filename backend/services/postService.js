@@ -4,9 +4,9 @@ import {
   find,
   countDocuments,
   findById,
-} from "../models/Post";
-import { slugify } from "../utils/slugify";
-import { getPagination } from "../utils/pagination";
+} from "../models/Post.js";
+import { slugify } from "../utils/slugify.js";
+import { getPagination } from "../utils/pagination.js";
 
 const createPost = async (data, authorId) => {
   // Generate slug from title
@@ -155,7 +155,7 @@ const likePost = async (id, userId) => {
   return post;
 };
 
-export default {
+export {
   createPost,
   listPosts,
   getPostBySlug,

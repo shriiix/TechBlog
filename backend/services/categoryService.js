@@ -1,4 +1,4 @@
-import { findOne, create, find, findById } from "../models/Category";
+import { findOne, create, find, findById } from "../models/Category.js";
 
 const createCategory = async (data) => {
   // Check if category already exists
@@ -58,7 +58,7 @@ const deleteCategory = async (id) => {
   return { message: "Category deleted successfully" };
 };
 
-export default {
+export {
   createCategory,
   getAllCategories,
   getCategoryById,

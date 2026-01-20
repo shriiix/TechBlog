@@ -1,4 +1,4 @@
-const { verifyToken } = require("../utils/jwt");
+import { verifyToken } from "../utils/jwt.js";
 
 const authMiddleware = (req, res, next) => {
   try {
@@ -27,4 +27,4 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-module.exports = authMiddleware;
+export default authMiddleware;

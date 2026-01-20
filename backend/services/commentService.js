@@ -1,5 +1,5 @@
-import { create, find, findById } from "../models/Comment";
-import { findById as _findById } from "../models/Post";
+import { create, find, findById } from "../models/Comment.js";
+import { findById as _findById } from "../models/Post.js";
 
 const createComment = async (postId, data, userId) => {
   // Verify post exists
@@ -70,9 +70,4 @@ const deleteComment = async (id, userId) => {
   return { message: "Comment deleted successfully" };
 };
 
-export default {
-  createComment,
-  getCommentsByPost,
-  updateComment,
-  deleteComment,
-};
+export { createComment, getCommentsByPost, updateComment, deleteComment };

@@ -1,8 +1,9 @@
-const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv");
-const { connectDB } = require("./config/db");
-const apiRoutes = require("./routes");
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { connectDB } from "./config/db.js";
+import apiRoutes from "./routes/index.js";
+import errorHandler from "./middlewares/errorHandler.js";
 
 dotenv.config();
 
@@ -19,7 +20,7 @@ connectDB();
 app.use("/api", apiRoutes);
 
 // Global error handler middleware
-app.use(require("./middlewares/errorHandler"));
+app.use(errorHandler);
 
 // Start server
 const PORT = process.env.PORT || 5000;

@@ -5,7 +5,7 @@ import {
   updatePost as _updatePost,
   deletePost as _deletePost,
   likePost as _likePost,
-} from "../services/postService";
+} from "../services/postService.js";
 
 const createPost = async (req, res, next) => {
   try {
@@ -82,7 +82,7 @@ const likePost = async (req, res, next) => {
   }
 };
 
-export default {
+export {
   createPost,
   listPosts,
   getPostBySlug,

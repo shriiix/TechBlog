@@ -4,7 +4,7 @@ import {
   getCategoryById as _getCategoryById,
   updateCategory as _updateCategory,
   deleteCategory as _deleteCategory,
-} from "../services/categoryService";
+} from "../services/categoryService.js";
 
 const createCategory = async (req, res, next) => {
   try {
@@ -68,7 +68,7 @@ const deleteCategory = async (req, res, next) => {
   }
 };
 
-export default {
+export {
   createCategory,
   getAllCategories,
   getCategoryById,

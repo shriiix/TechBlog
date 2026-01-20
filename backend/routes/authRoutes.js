@@ -1,6 +1,7 @@
-const express = require("express");
+import express from "express";
+import { register, login, logout } from "../controllers/authController.js";
+
 const router = express.Router();
-const { register, login, logout } = require("../controllers/authController");
 
 // Public routes
 router.post("/register", register);
@@ -9,4 +10,4 @@ router.post("/login", login);
 // Protected routes (add auth middleware later)
 router.post("/logout", logout);
 
-module.exports = router;
+export default router;

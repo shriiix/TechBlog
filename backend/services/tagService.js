@@ -1,4 +1,4 @@
-import { findOne, create, find, findById } from "../models/Tag";
+import { findOne, create, find, findById } from "../models/Tag.js";
 
 const createTag = async (data) => {
   // Check if tag already exists
@@ -58,10 +58,4 @@ const deleteTag = async (id) => {
   return { message: "Tag deleted successfully" };
 };
 
-export default {
-  createTag,
-  getAllTags,
-  getTagById,
-  updateTag,
-  deleteTag,
-};
+export { createTag, getAllTags, getTagById, updateTag, deleteTag };

@@ -3,7 +3,7 @@ import {
   getCommentsByPost as _getCommentsByPost,
   updateComment as _updateComment,
   deleteComment as _deleteComment,
-} from "../services/commentService";
+} from "../services/commentService.js";
 
 const createComment = async (req, res, next) => {
   try {
@@ -63,9 +63,4 @@ const deleteComment = async (req, res, next) => {
   }
 };
 
-export default {
-  createComment,
-  getCommentsByPost,
-  updateComment,
-  deleteComment,
-};
+export { createComment, getCommentsByPost, updateComment, deleteComment };

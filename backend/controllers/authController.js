@@ -1,7 +1,7 @@
 import {
   register as _register,
   login as _login,
-} from "../services/authService";
+} from "../services/authService.js";
 
 const register = async (req, res, next) => {
   try {
@@ -41,4 +41,4 @@ const logout = async (req, res, next) => {
   }
 };
 
-export default { register, login, logout };
+export { register, login, logout };

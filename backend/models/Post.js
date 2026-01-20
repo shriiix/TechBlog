@@ -18,4 +18,12 @@ const postSchema = new Schema(
   { timestamps: true }
 );
 
-export default model("Post", postSchema);
+const Post = model("Post", postSchema);
+
+export const findOne = (query) => Post.findOne(query);
+export const create = (data) => Post.create(data);
+export const find = (query) => Post.find(query);
+export const findById = (id) => Post.findById(id);
+export const countDocuments = (query) => Post.countDocuments(query);
+
+export default Post;

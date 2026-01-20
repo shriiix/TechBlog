@@ -4,7 +4,7 @@ import {
   getTagById as _getTagById,
   updateTag as _updateTag,
   deleteTag as _deleteTag,
-} from "../services/tagService";
+} from "../services/tagService.js";
 
 const createTag = async (req, res, next) => {
   try {
@@ -68,10 +68,4 @@ const deleteTag = async (req, res, next) => {
   }
 };
 
-export default {
-  createTag,
-  getAllTags,
-  getTagById,
-  updateTag,
-  deleteTag,
-};
+export { createTag, getAllTags, getTagById, updateTag, deleteTag };

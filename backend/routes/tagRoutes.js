@@ -1,13 +1,14 @@
-const express = require("express");
-const router = express.Router();
-const auth = require("../middlewares/authMiddleware");
-const {
+import express from "express";
+import auth from "../middlewares/authMiddleware.js";
+import {
   createTag,
   getAllTags,
   getTagById,
   updateTag,
   deleteTag,
-} = require("../controllers/tagRoutes");
+} from "../controllers/tagController.js";
+
+const router = express.Router();
 
 // Public routes
 router.get("/", getAllTags);
@@ -18,4 +19,4 @@ router.post("/", auth, createTag);
 router.put("/:id", auth, updateTag);
 router.delete("/:id", auth, deleteTag);
 
-module.exports = router;
+export default router;
